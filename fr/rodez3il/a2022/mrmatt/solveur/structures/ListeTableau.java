@@ -50,7 +50,7 @@ public class ListeTableau<E> implements Liste<E> {
   }
 
   @Override
-  public E enlever(int i) {
+  public E enlever(int i) throws IndexOutOfBoundsException {
     if (i < 0 || i >= this.taille)
       throw new IndexOutOfBoundsException();
 
@@ -65,7 +65,7 @@ public class ListeTableau<E> implements Liste<E> {
   }
 
   @Override
-  public E element(int i) {
+  public E element(int i) throws IndexOutOfBoundsException {
     if (i < 0 || i >= this.taille)
       throw new IndexOutOfBoundsException();
 
