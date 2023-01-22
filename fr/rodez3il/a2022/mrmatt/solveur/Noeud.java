@@ -59,9 +59,10 @@ public class Noeud {
 		return true;
 	}
 
-  public void calculerFils() {
+  public String calculerFils() {
+    String solution = null;
     if(estVisite()){
-      
+
     } else {
       config.inserer(etat, this);
     } 
@@ -77,7 +78,8 @@ public class Noeud {
         Niveau nouvelEtat = etat.copier();
 
         if(nouvelEtat.estGagnant()){
-          System.out.println("La solution est : " + nouvellesCommandes);
+          //System.out.println("La solution est : " + nouvellesCommandes);
+          solution = nouvellesCommandes;
         } else {
           Noeud filsNoeud;
 
@@ -90,7 +92,7 @@ public class Noeud {
         }
       }
     }
-
+  return solution;
   }
   
   
