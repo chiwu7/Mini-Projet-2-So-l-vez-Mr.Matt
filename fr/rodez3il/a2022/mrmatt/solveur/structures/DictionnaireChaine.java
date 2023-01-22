@@ -15,6 +15,9 @@ public class DictionnaireChaine<C, V> implements Dictionnaire<C, V> {
 
   private ListeChainee<Entree<C,V>> liste = new ListeChainee<Entree<C,V>>();
 
+  public DictionnaireChaine(){
+    
+  }
   @Override
   public void inserer(C cle, V valeur) {
 
@@ -34,7 +37,7 @@ public class DictionnaireChaine<C, V> implements Dictionnaire<C, V> {
 
   @Override
   public boolean contient(C cle) {
-    boolean resultat;
+    boolean resultat = false;
 
     if (liste.estVide()) {
       resultat = false;
@@ -43,18 +46,16 @@ public class DictionnaireChaine<C, V> implements Dictionnaire<C, V> {
         Entree<C, V> element = liste.element(i);
         if(element.cle.equals(cle)){
           resultat = true;
-        } else {
-          resultat = false;
-        }
+        }  
       }
     }
     return resultat;
   }
 
   @Override
-  public V valeur(C cle) {
+  public V valeur(C cle){
 
-    V val;
+    V val = null;
     
     if (liste.estVide()) {
       val = null;
