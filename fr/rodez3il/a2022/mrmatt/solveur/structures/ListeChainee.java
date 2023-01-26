@@ -81,7 +81,7 @@ public class ListeChainee<T> implements Liste<T> {
 
   private Maillon getMaillon(int i){
     Maillon maillon = tete;
-    for (int j = 0; j < i; i++) {
+    for (int j = 0; j < i; j++) {
       maillon = maillon.getSuivant();
     }
     return maillon;

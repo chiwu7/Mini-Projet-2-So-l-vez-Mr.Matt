@@ -54,8 +54,8 @@ public class ListeTableau<E> implements Liste<E> {
 
     E supprimer = this.tab[i];
 
-    for (int j = i; j < this.taille - 1; j++)
-      this.tab[j] = this.tab[j + 1];
+    for (int j = i; j < this.tab.length - 1; j++)
+      this.tab[j] = this.tab[j+1];
 
     this.taille--;
 
@@ -75,8 +75,9 @@ public class ListeTableau<E> implements Liste<E> {
     boolean etat = false;
 
     for (int i = 0; i < this.taille; i++)
-      if (this.tab[i].equals(e))
+      if (this.tab[i] != null && this.tab[i].equals(e)) {
         etat = true;
+      }
 
     return etat;
   }

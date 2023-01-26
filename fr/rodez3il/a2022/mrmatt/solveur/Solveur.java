@@ -9,7 +9,7 @@ public class Solveur {
     
     DictionnaireChaine<Niveau, Noeud> configConnu = new DictionnaireChaine<>();
     
-    Noeud noeudInitial = new Noeud(configConnu, niveau,"");
+    Noeud noeudInitial = new Noeud(configConnu, niveau, null);
     
     ListeTableau<Noeud> aTraiter = new ListeTableau<>();
     
@@ -23,25 +23,25 @@ public class Solveur {
 
       Noeud noeudTraiter = aTraiter.enlever(0);
       traites.ajouter(noeudTraiter);
-
+  
       String solut = noeudTraiter.calculerFils();
-
       if(solut==null) {
-        Noeud[] tabFils = noeudTraiter.getFils();
-        for(int i = 0; i < tabFils.length; i++) {
-          Noeud fils = tabFils[i];
+        ListeTableau<Noeud> tabFils = noeudTraiter.getFils();
+        for(int i = 0; i < tabFils.taille() - 1; i++) {
+          Noeud fils = tabFils.element(i);
           if(!aTraiter.contient(fils) && !traites.contient(fils))
             aTraiter.ajouter(fils);
         }
       } else {
         solution = solut;
+        break;
       }
-    }
+    } 
 		return solution;
 	}
 	
 	public static void main(String[] args) {
-		String solution = trouverSolution(new Niveau("niveaux/1rocher.txt"));
+		String solution = trouverSolution(new Niveau("fr/niveaux/1rocher.txt"));
 		if (solution == null) {
 			System.out.println("Pas de solution.");
 		} else {
