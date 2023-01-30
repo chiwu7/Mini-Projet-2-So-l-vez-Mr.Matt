@@ -21,6 +21,7 @@ public class DictionnaireChaine<C, V> implements Dictionnaire<C, V> {
   @Override
   public void inserer(C cle, V valeur) {
 
+    boolean cleExiste = false;
     Entree<C, V> nouveauElement = new Entree<C, V>(cle, valeur);
     
     if (liste.estVide())
@@ -30,9 +31,12 @@ public class DictionnaireChaine<C, V> implements Dictionnaire<C, V> {
       nouveauElement = liste.element(i);
       if(nouveauElement.cle.equals(cle))
         nouveauElement.valeur = valeur;
+        cleExiste = true;
+        break;
     } 
 
-    liste.ajouter(new Entree<C, V>(cle, valeur));
+    if(!cleExiste)
+      liste.ajouter(new Entree<C, V>(cle, valeur));
   }
 
   @Override

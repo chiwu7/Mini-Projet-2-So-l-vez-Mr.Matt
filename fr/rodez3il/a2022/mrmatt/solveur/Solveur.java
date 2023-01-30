@@ -6,39 +6,40 @@ import fr.rodez3il.a2022.mrmatt.sources.Niveau;
 public class Solveur {
 
 	public static String trouverSolution(Niveau niveau) {
-    
-    DictionnaireChaine<Niveau, Noeud> configConnu = new DictionnaireChaine<>();
-    
-    Noeud noeudInitial = new Noeud(configConnu, niveau, null);
-    
-    ListeTableau<Noeud> aTraiter = new ListeTableau<>();
-    
-    ListeTableau<Noeud> traites = new ListeTableau<>(); 
 
-    String solution = null;
+  DictionnaireChaine<String, Noeud> configConnu = new DictionnaireChaine<>();
+    
+  Noeud noeudInitial = new Noeud(configConnu, niveau, "");
+    
+  ListeTableau<Noeud> aTraiter = new ListeTableau<>();
+  ListeTableau<Noeud> traite = new ListeTableau<>();
 
-    aTraiter.ajouter(noeudInitial);
+  aTraiter.ajouter(noeudInitial);
 
-    while (!aTraiter.estVide()){
+  String solution = null;
 
-      Noeud noeudTraiter = aTraiter.enlever(0);
-      traites.ajouter(noeudTraiter);
+  while (!aTraiter.estVide() && solution ==null){
+
+    Noeud n = aTraiter.enlever(0);
+    traite.ajouter(n);
   
-      String solut = noeudTraiter.calculerFils();
-      if(solut==null) {
-        ListeTableau<Noeud> tabFils = noeudTraiter.getFils();
-        for(int i = 0; i < tabFils.taille() - 1; i++) {
-          Noeud fils = tabFils.element(i);
-          if(!aTraiter.contient(fils) && !traites.contient(fils))
-            aTraiter.ajouter(fils);
+    solution = n.calculerFils();
+    
+    if(solution==null) {
+      ListeTableau<Noeud> tabFils = n.getFils();
+      for(int i = 0; i < tabFils.taille(); i++) {
+        Noeud fils = tabFils.element(i);
+        if(!aTraiter.contient(fils) && !traite.contient(fils) && !fils.estVisite()){
+
+          aTraiter.ajouter(fils);
         }
-      } else {
-        solution = solut;
-        break;
       }
     } 
-		return solution;
-	}
+
+  } 
+  return solution;
+}
+
 	
 	public static void main(String[] args) {
 		String solution = trouverSolution(new Niveau("fr/niveaux/1rocher.txt"));
