@@ -2,7 +2,7 @@ package fr.rodez3il.a2022.mrmatt.solveur.structures;
 
 public class ListeChainee<T> implements Liste<T> {
 
-  /*
+  /**
    * La classe Maillon représente un élement d'une liste chainée
   */
   
@@ -12,7 +12,7 @@ public class ListeChainee<T> implements Liste<T> {
     //Le maillon suivant dans la liste
     private Maillon suivant;
 
-    /*
+    /**
      * Constructeur qui permet de créer un nouveau maillon
      * @param donnee : la donnée à stocker dans le maillon
      * @return retourne un nouveau Maillon 
@@ -22,7 +22,7 @@ public class ListeChainee<T> implements Liste<T> {
       this.suivant = null;
     }
 
-    /*
+    /**
      * Permet de définir la donnée stockée dans le maillon
      * @param donnee : la nouvelle donnée à stocker dans le maillon
     */
@@ -30,7 +30,7 @@ public class ListeChainee<T> implements Liste<T> {
       this.donnee = donnee;
     }
 
-    /*
+    /**
      * Permet de définir le maillon suivant dans la liste chainée
      * @param suivant : le nouveau maillon suivant
     */
@@ -38,7 +38,7 @@ public class ListeChainee<T> implements Liste<T> {
       this.suivant = suivant;
     }
 
-    /*
+    /**
      * Récupère la donnée stockée dans le maillon
      * @return T la donnée dans le maillon
     */
@@ -46,7 +46,7 @@ public class ListeChainee<T> implements Liste<T> {
       return this.donnee;
     }
 
-    /*
+    /**
      * Récupère le maillon suivant dans la liste
      * @return Maillon le maillon suivant dans la liste
     */
@@ -60,7 +60,7 @@ public class ListeChainee<T> implements Liste<T> {
   //La taille de la liste chainée
   private int taille;
 
-  /*
+  /**
    * Constructeur qui créer une nouvelle liste chainée vide
    * @return : une liste chainée vide
   */
@@ -69,7 +69,7 @@ public class ListeChainee<T> implements Liste<T> {
     this.taille = 0;
   }
 
-  /*
+  /**
    * Ajoute un élément à la fin de la liste
    * @param element : l'élément à ajouter
   */  
@@ -88,10 +88,10 @@ public class ListeChainee<T> implements Liste<T> {
     taille++;
   }
   
-  /*
-  * Retourne le maille à l'index spécifié
-  * @param i : l'index du maillon à retourner
-  * @return : Le maillon correspondant à l'index spécifié
+  /**
+   * Retourne le maille à l'index spécifié
+   * @param i : l'index du maillon à retourner
+   * @return : Le maillon correspondant à l'index spécifié
   */
   private Maillon getMaillon(int i){
     //on initialise le maillon au premier élément de la liste.
@@ -103,7 +103,7 @@ public class ListeChainee<T> implements Liste<T> {
     return maillon;
   }
   
-  /*
+  /**
    * Renvoie l'élément à l'index spécifié à la liste chainée
    * @param i : index de l'élément à renvoyer
    * return element : l'élément de la liste à l'index spécifié
@@ -120,10 +120,10 @@ public class ListeChainee<T> implements Liste<T> {
     return maillon.getDonnee();
   }
 
-  /* 
-  * Enleve et renvoie l'élément à l'index spécifié dans la liste
-  * @param i : l'index de l'élément à enlever
-  * @return T : l'élément à l'index spécifié
+  /**
+   * Enleve et renvoie l'élément à l'index spécifié dans la liste
+   * @param i : l'index de l'élément à enlever
+   * @return T : l'élément à l'index spécifié
   */
   @Override
   public T enlever(int i) throws IndexOutOfBoundsException {
@@ -152,18 +152,18 @@ public class ListeChainee<T> implements Liste<T> {
     return maillonSupprimer.getDonnee();
   }
 
-  /*
-  * Retourne la taille de la liste 
-  * @return this.taille : la taille de la liste
+  /**
+   * Retourne la taille de la liste 
+   * @return this.taille : la taille de la liste
   */
   @Override
   public int taille(){
     return this.taille;
   }
 
-  /*
-  * Indique si la liste est vide ou non
-  * @return true ssi la liste est vide
+  /**
+   * Indique si la liste est vide ou non
+   * @return true ssi la liste est vide
   */
   @Override
   public boolean estVide(){
@@ -176,15 +176,16 @@ public class ListeChainee<T> implements Liste<T> {
     return etat;
   }
 
-  /*
-  * Vérifie si un élément est contenu dans la liste
-  * @param element : l'élément à chercher
-  * @return true ssi l'élément est contenu dans la liste
+  /**
+   * Vérifie si un élément est contenu dans la liste
+   * @param element : l'élément à chercher
+   * @return true ssi l'élément est contenu dans la liste
   */
   @Override
   public boolean contient(T element) {
     boolean resultat = false;
     Maillon maillon = tete;
+    //on parcours tous les éléments de la liste
     while (maillon != null) {
       if (maillon.getDonnee().equals(element)) {
           resultat = true;

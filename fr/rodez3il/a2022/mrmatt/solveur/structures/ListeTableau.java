@@ -70,11 +70,12 @@ public class ListeTableau<E> implements Liste<E> {
 	 */  
   @Override
   public E enlever(int i) throws IndexOutOfBoundsException {
+    //on vérifie si l'index est valide
     if (i < 0 || i >= this.taille)
       throw new IndexOutOfBoundsException();
 
     E supprimer = this.tab[i];
-
+    //on décale les elements vers la gauche par rapport à i 
     for (int j = i; j < this.tab.length - 1; j++)
       this.tab[j] = this.tab[j+1];
 
@@ -90,6 +91,7 @@ public class ListeTableau<E> implements Liste<E> {
 	 */  
   @Override
   public E element(int i) throws IndexOutOfBoundsException {
+    //on vérifie si l'index est valide
     if (i < 0 || i >= this.taille)
       throw new IndexOutOfBoundsException();
 
