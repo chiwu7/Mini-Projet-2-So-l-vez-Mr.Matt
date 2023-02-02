@@ -12,6 +12,10 @@ public class ListeTableau<E> implements Liste<E> {
     this.taille = 0;
   }
 
+  /**
+	 * Ajoute un élément à la liste.
+	 * @param element l'élément à ajouter
+	*/
   @Override
   public void ajouter(E element) {
     if (this.taille == this.tab.length)
@@ -21,6 +25,9 @@ public class ListeTableau<E> implements Liste<E> {
     this.taille++;
   }
 
+  /**
+   * Redimensionne le tableau en cours en doublant sa taille
+  */
   private void redimensionner() {
 
     E[] NouveauTab = (E[]) (new Object[this.tab.length * 2]);
@@ -31,6 +38,10 @@ public class ListeTableau<E> implements Liste<E> {
     this.tab = NouveauTab;
   }
 
+	/**
+	 * Indique si la liste est vide.
+	 * @return true ssi la liste est vide.
+	 */  
   @Override
   public boolean estVide() {
     boolean etat;
@@ -42,11 +53,21 @@ public class ListeTableau<E> implements Liste<E> {
     return etat;
   }
 
+	/**
+	 * Indique la taille de la liste.
+	 * @return La taille de la liste.
+	 */  
   @Override
   public int taille() {
     return this.taille;
   }
 
+	/**
+	 * Enlève (et retourne) l'élément à la position
+	 * i.
+	 * @param i la position de l'élément.
+	 * @return L'élément qui a été supprimé. 
+	 */  
   @Override
   public E enlever(int i) throws IndexOutOfBoundsException {
     if (i < 0 || i >= this.taille)
@@ -62,6 +83,11 @@ public class ListeTableau<E> implements Liste<E> {
     return supprimer;
   }
 
+	/**
+	 * Renvoie l'élément à la position i.
+	 * @param i la position de l'élément
+	 * @return L'élément
+	 */  
   @Override
   public E element(int i) throws IndexOutOfBoundsException {
     if (i < 0 || i >= this.taille)
@@ -69,7 +95,13 @@ public class ListeTableau<E> implements Liste<E> {
 
     return this.tab[i];
   }
-
+  
+	/**
+	 * Indique s'il existe un élément f dans la liste
+	 * tel que f.equals(e) est VRAI.
+	 * @param e L'élément à comparer.
+	 * @return vrai ssi la liste contient l'élément
+	 */
   @Override
   public boolean contient(E e) {
     boolean etat = false;
