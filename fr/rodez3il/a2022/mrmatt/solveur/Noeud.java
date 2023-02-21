@@ -20,7 +20,7 @@ public class Noeud {
   //chaine de caractère représentant la succession des commandes
   private String suiteCommandes;
   //représente l'état du niveau sous forme de caractères
-  String valChaine;
+  private String valChaine;
 
   /**
    * Constructeur pour la classe Noeud.
