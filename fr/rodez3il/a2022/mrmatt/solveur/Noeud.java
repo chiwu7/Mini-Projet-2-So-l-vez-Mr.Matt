@@ -54,16 +54,6 @@ public class Noeud {
   }
 
   /**
-   * Indique si le noeud à déjà été visité.
-   * @return vrai ssi le noeud à été visité
-    */  
-  public void ajouterFils(Noeud fils) {
-    if (fils != null) {
-      this.fils.ajouter(fils);
-    }
-  }
-
-  /**
    * Redéfinition de la méthode equals
    */
   @Override

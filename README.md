@@ -9,6 +9,8 @@ Question 2
 
 Question 3
 
+  Oui, le type statique de références des listes et des dictionnaires est celui des implémentations concrètres, sinon on aurait des erreurs à l'éxécution.
+
 Points difficiles : 
 
   J'ai trouvé la listeChainee plutôt dure à comprendre. On manquait d'explication sur les maillons et globalement sur le fonctionnement d'une listeChainee dans le sujet je trouve.
